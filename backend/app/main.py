@@ -50,6 +50,16 @@ app.include_router(policies.router)
 app.include_router(chat.router)
 
 
+@app.get("/")
+async def root():
+    return {
+        "name": "CuraSense AI API",
+        "status": "online",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}

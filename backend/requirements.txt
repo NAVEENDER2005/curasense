@@ -17,9 +17,3 @@ openai==1.58.1
 anthropic==0.42.0
 pinecone==5.4.2
 
-# Orchestration (optional - the AI layer's own lightweight prompt/retrieval
-# code in ai/llm.py, ai/rag.py runs without these; they're included so teams
-# who want to swap in LangChain chains / LlamaIndex retrievers can do so
-# without an extra install step)
-langchain==0.3.13
-llama-index==0.12.10

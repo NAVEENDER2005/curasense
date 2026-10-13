@@ -1,0 +1,37 @@
+# Env
+.env
+.env.local
+*.local
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+.next/
+out/
+npm-debug.log*
+
+# DB
+*.sqlite3
+pgdata/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Local vector store cache
+ai/.vector_cache/
+
+# Unrelated subprojects
+rk-interior/
+

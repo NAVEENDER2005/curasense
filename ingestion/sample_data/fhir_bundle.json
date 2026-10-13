@@ -1,0 +1,370 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "_comment": "Synthetic mock data shaped like an Epic/Cerner FHIR R4 export. A real integration would pull these resources from the hospital's FHIR endpoint instead of a static file. DocumentReference.content[].attachment normally carries base64 in `data`; we add a `contentPlainText` convenience field here so the mock loader doesn't need a base64 round-trip. Claim/ClaimResponse are collapsed into one augmented Claim resource (curasense* fields) to keep the mock feed simple.",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-001",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-100234" }],
+        "name": [{ "family": "Alvarez", "given": ["Rosa"] }],
+        "gender": "female",
+        "birthDate": "1958-03-12",
+        "curasensePayerCode": "AETNA",
+        "curasenseMemberId": "AET-88213"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-001",
+        "patientRef": "pt-001",
+        "class": "inpatient",
+        "serviceType": "Internal Medicine",
+        "attendingPhysician": "Dr. K. Whitfield",
+        "period": { "start": "2026-06-02T08:15:00Z", "end": "2026-06-06T14:00:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-001",
+        "encounterRef": "enc-001",
+        "type": "discharge_summary",
+        "author": "Dr. K. Whitfield",
+        "date": "2026-06-06T13:40:00Z",
+        "contentPlainText": "Ms. Alvarez is a 68-year-old female admitted with fever, hypotension (88/54), and tachycardia. Blood cultures grew E. coli. Diagnosed with severe sepsis secondary to urinary tract infection, complicated by acute kidney injury (creatinine peaked at 2.4 from baseline 0.9). Treated with IV ceftriaxone, aggressive fluid resuscitation, and required 18 hours of close monitoring in a step-down unit. Renal function trended back toward baseline by discharge. Discharged in stable condition on oral antibiotics with nephrology follow-up scheduled. Documentation supports SIRS criteria met (temp, HR, and evidence of organ dysfunction) at time of admission."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-001",
+        "encounterRef": "enc-001",
+        "payerCode": "AETNA",
+        "claimNumber": "CLM-100001",
+        "diagnosisCodes": ["A41.9"],
+        "procedureCodes": ["99223", "99232"],
+        "totalBilled": 18420.00,
+        "curasenseStatus": "denied",
+        "curasenseDenialReason": "Insufficient documentation linking sepsis diagnosis to acute organ dysfunction; payer requires explicit severity-of-illness criteria (SIRS + organ dysfunction) coded and documented for severe sepsis reimbursement tier.",
+        "curasenseSubmittedAt": "2026-06-08T09:00:00Z",
+        "curasenseDecidedAt": "2026-06-19T11:00:00Z",
+        "curasenseHistorical": true
+      }
+    },
+
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-002",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-100587" }],
+        "name": [{ "family": "Chen", "given": ["Marcus"] }],
+        "gender": "male",
+        "birthDate": "1971-11-02",
+        "curasensePayerCode": "UHC",
+        "curasenseMemberId": "UHC-55021"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-002",
+        "patientRef": "pt-002",
+        "class": "inpatient",
+        "serviceType": "Cardiology",
+        "attendingPhysician": "Dr. S. Okafor",
+        "period": { "start": "2026-07-20T22:10:00Z", "end": "2026-07-23T10:30:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-002",
+        "encounterRef": "enc-002",
+        "type": "discharge_summary",
+        "author": "Dr. S. Okafor",
+        "date": "2026-07-23T10:15:00Z",
+        "contentPlainText": "Mr. Chen presented with acute dyspnea, bilateral lower extremity edema, and elevated BNP (1,840). Echocardiogram showed LVEF 30%, consistent with acute decompensation of known chronic systolic heart failure. Treated with IV furosemide with 4.2L net diuresis over 48 hours, transitioned to oral diuretics, and discharged with cardiology follow-up in 1 week. Medication reconciliation completed; started on updated goal-directed medical therapy including sacubitril-valsartan. Patient tolerated therapy well; euvolemic at discharge."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-002",
+        "encounterRef": "enc-002",
+        "payerCode": "UHC",
+        "claimNumber": "CLM-100002",
+        "diagnosisCodes": ["I50.9"],
+        "procedureCodes": ["99223", "99232"],
+        "totalBilled": 14210.00,
+        "curasenseStatus": "ready",
+        "curasenseDenialReason": null,
+        "curasenseSubmittedAt": null,
+        "curasenseDecidedAt": null,
+        "curasenseHistorical": false
+      }
+    },
+
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-003",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-100812" }],
+        "name": [{ "family": "Nguyen", "given": ["Thu"] }],
+        "gender": "female",
+        "birthDate": "1965-05-19",
+        "curasensePayerCode": "MEDICARE",
+        "curasenseMemberId": "MCR-33144"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-003",
+        "patientRef": "pt-003",
+        "class": "outpatient-surgery",
+        "serviceType": "Orthopedics",
+        "attendingPhysician": "Dr. R. Patel",
+        "period": { "start": "2026-05-10T07:00:00Z", "end": "2026-05-10T15:30:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-003",
+        "encounterRef": "enc-003",
+        "type": "physician_note",
+        "author": "Dr. R. Patel",
+        "date": "2026-05-10T15:00:00Z",
+        "contentPlainText": "Ms. Nguyen underwent elective total left knee arthroplasty for end-stage osteoarthritis, confirmed on prior imaging with failed conservative management (physical therapy x6 months, NSAIDs, and two corticosteroid injections documented in chart over the past year). Procedure performed without complication. Standard post-op protocol initiated, ambulating with PT same day. Discharged home with home health PT arranged."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-003",
+        "encounterRef": "enc-003",
+        "payerCode": "MEDICARE",
+        "claimNumber": "CLM-100003",
+        "diagnosisCodes": ["M17.11"],
+        "procedureCodes": ["27447"],
+        "totalBilled": 32950.00,
+        "curasenseStatus": "paid",
+        "curasenseDenialReason": null,
+        "curasenseSubmittedAt": "2026-05-12T09:00:00Z",
+        "curasenseDecidedAt": "2026-05-24T09:00:00Z",
+        "curasenseHistorical": true
+      }
+    },
+
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-004",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-101055" }],
+        "name": [{ "family": "Brennan", "given": ["Liam"] }],
+        "gender": "male",
+        "birthDate": "1982-01-27",
+        "curasensePayerCode": "AETNA",
+        "curasenseMemberId": "AET-71190"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-004",
+        "patientRef": "pt-004",
+        "class": "outpatient",
+        "serviceType": "Radiology",
+        "attendingPhysician": "Dr. M. Halvorsen",
+        "period": { "start": "2026-06-28T13:00:00Z", "end": "2026-06-28T14:00:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-004",
+        "encounterRef": "enc-004",
+        "type": "physician_note",
+        "author": "Dr. M. Halvorsen",
+        "date": "2026-06-28T13:45:00Z",
+        "contentPlainText": "Patient reports 3 weeks of lower back pain radiating to the left leg. No red-flag symptoms (no bowel/bladder dysfunction, no fever, no trauma). No prior conservative therapy documented in chart. Ordering lumbar spine MRI without contrast to evaluate for disc herniation given persistent symptoms."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-004",
+        "encounterRef": "enc-004",
+        "payerCode": "AETNA",
+        "claimNumber": "CLM-100004",
+        "diagnosisCodes": ["M54.16"],
+        "procedureCodes": ["72148"],
+        "totalBilled": 2650.00,
+        "curasenseStatus": "denied",
+        "curasenseDenialReason": "Medical necessity not established: payer policy requires and documents a minimum 6-week trial of conservative therapy (PT, NSAIDs, or oral steroids) prior to non-emergent lumbar MRI authorization. Chart shows only 3 weeks of symptoms and no conservative treatment trial.",
+        "curasenseSubmittedAt": "2026-06-29T09:00:00Z",
+        "curasenseDecidedAt": "2026-07-10T09:00:00Z",
+        "curasenseHistorical": true
+      }
+    },
+
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-005",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-101390" }],
+        "name": [{ "family": "Osei", "given": ["Grace"] }],
+        "gender": "female",
+        "birthDate": "1949-09-08",
+        "curasensePayerCode": "MEDICARE",
+        "curasenseMemberId": "MCR-40982"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-005",
+        "patientRef": "pt-005",
+        "class": "inpatient",
+        "serviceType": "Pulmonology",
+        "attendingPhysician": "Dr. J. Farrow",
+        "period": { "start": "2026-07-01T06:00:00Z", "end": "2026-07-04T12:00:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-005",
+        "encounterRef": "enc-005",
+        "type": "discharge_summary",
+        "author": "Dr. J. Farrow",
+        "date": "2026-07-04T11:30:00Z",
+        "contentPlainText": "Ms. Osei admitted with community-acquired pneumonia, right lower lobe consolidation on chest X-ray. Two additional chest X-rays were ordered and billed within the same 24-hour period without documented clinical change to justify repeat imaging. Treated with IV levofloxacin, improved clinically, discharged on oral antibiotics."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-005",
+        "encounterRef": "enc-005",
+        "payerCode": "MEDICARE",
+        "claimNumber": "CLM-100005",
+        "diagnosisCodes": ["J18.9"],
+        "procedureCodes": ["99222", "71046", "71046", "71046"],
+        "totalBilled": 9870.00,
+        "curasenseStatus": "denied",
+        "curasenseDenialReason": "Duplicate imaging charges flagged during payer audit: three chest X-rays (71046) billed within 24 hours with no documented change in clinical status between studies.",
+        "curasenseSubmittedAt": "2026-07-05T09:00:00Z",
+        "curasenseDecidedAt": "2026-07-16T09:00:00Z",
+        "curasenseHistorical": true
+      }
+    },
+
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-006",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-101623" }],
+        "name": [{ "family": "Delgado", "given": ["Victor"] }],
+        "gender": "male",
+        "birthDate": "1955-12-30",
+        "curasensePayerCode": "UHC",
+        "curasenseMemberId": "UHC-90344"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-006",
+        "patientRef": "pt-006",
+        "class": "inpatient",
+        "serviceType": "Pulmonology",
+        "attendingPhysician": "Dr. A. Reyes",
+        "period": { "start": "2026-07-27T04:20:00Z", "end": "2026-07-29T16:00:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-006",
+        "encounterRef": "enc-006",
+        "type": "discharge_summary",
+        "author": "Dr. A. Reyes",
+        "date": "2026-07-29T15:40:00Z",
+        "contentPlainText": "Mr. Delgado, known COPD (GOLD stage III), admitted with acute exacerbation triggered by viral URI. Treated with nebulized bronchodilators, IV methylprednisolone, and supplemental oxygen (2L NC, weaned to room air by day 2). Sputum culture negative. No antibiotics required given low procalcitonin and lack of purulent sputum. Discharged with updated inhaler regimen and pulmonology follow-up in 2 weeks. Documentation includes spirometry-confirmed severity and clear exacerbation criteria (increased dyspnea, sputum change, home O2 requirement)."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-006",
+        "encounterRef": "enc-006",
+        "payerCode": "UHC",
+        "claimNumber": "CLM-100006",
+        "diagnosisCodes": ["J44.1"],
+        "procedureCodes": ["99223", "99231"],
+        "totalBilled": 11380.00,
+        "curasenseStatus": "ready",
+        "curasenseDenialReason": null,
+        "curasenseSubmittedAt": null,
+        "curasenseDecidedAt": null,
+        "curasenseHistorical": false
+      }
+    },
+
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt-007",
+        "identifier": [{ "system": "urn:mrn", "value": "MRN-101884" }],
+        "name": [{ "family": "Kowalski", "given": ["Daniel"] }],
+        "gender": "male",
+        "birthDate": "1960-04-17",
+        "curasensePayerCode": "AETNA",
+        "curasenseMemberId": "AET-63207"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-007",
+        "patientRef": "pt-007",
+        "class": "inpatient",
+        "serviceType": "Internal Medicine",
+        "attendingPhysician": "Dr. K. Whitfield",
+        "period": { "start": "2026-08-01T02:40:00Z", "end": "2026-08-03T09:00:00Z" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "note-007",
+        "encounterRef": "enc-007",
+        "type": "discharge_summary",
+        "author": "Dr. K. Whitfield",
+        "date": "2026-08-03T08:45:00Z",
+        "contentPlainText": "Mr. Kowalski, a 66-year-old male, was admitted with fever (102.1F), tachycardia, and hypotension responsive to fluids. Chest imaging and sputum culture confirmed pneumonia as the infection source, meeting criteria for sepsis. Labs showed creatinine rising from a baseline of 1.0 to 2.1 during admission, consistent with acute kidney injury attributed to the septic process. Treated with IV piperacillin-tazobactam and IV fluids; renal function improved with hydration. Discharged in stable condition with primary care follow-up in one week."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-007",
+        "encounterRef": "enc-007",
+        "payerCode": "AETNA",
+        "claimNumber": "CLM-100007",
+        "diagnosisCodes": ["A41.9"],
+        "procedureCodes": ["99223", "99232"],
+        "totalBilled": 16750.00,
+        "curasenseStatus": "ready",
+        "curasenseDenialReason": null,
+        "curasenseSubmittedAt": null,
+        "curasenseDecidedAt": null,
+        "curasenseHistorical": false
+      }
+    }
+  ]
+}

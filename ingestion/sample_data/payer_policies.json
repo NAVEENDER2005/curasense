@@ -1,0 +1,66 @@
+[
+  {
+    "payer_code": "AETNA",
+    "policy_number": "AET-CP-0142",
+    "title": "Severe Sepsis and Septic Shock - Documentation and Reimbursement Criteria",
+    "category": "clinical_documentation",
+    "effective_date": "2025-01-01",
+    "content": "Aetna reimburses the severe sepsis DRG tier only when the medical record explicitly documents: (1) a suspected or confirmed infection source, (2) at least two SIRS criteria (temperature >38C or <36C, heart rate >90, respiratory rate >20, abnormal WBC), and (3) evidence of acute organ dysfunction directly attributed to the infection (e.g., acute kidney injury, altered mental status, hypotension, elevated lactate >2mmol/L). Coding a general sepsis code (A41.9) without a linked, explicitly documented organ dysfunction diagnosis and a physician statement connecting the dysfunction to the septic process will result in denial or downgrade to a lower-severity DRG. Providers should ensure discharge summaries state organ dysfunction values (e.g., creatinine trend) and explicitly attribute them to the septic episode."
+  },
+  {
+    "payer_code": "AETNA",
+    "policy_number": "AET-CP-0209",
+    "title": "Non-Emergent Lumbar Spine MRI - Prior Authorization Requirements",
+    "category": "imaging_prior_auth",
+    "effective_date": "2025-03-01",
+    "content": "Non-emergent lumbar spine MRI (CPT 72148) requires documentation of a minimum 6-week trial of conservative therapy (physical therapy, NSAIDs, or oral corticosteroids) with no significant improvement, UNLESS red-flag symptoms are present (progressive neurological deficit, cauda equina signs, suspected malignancy, infection, or trauma). Claims submitted without either (a) documented red-flag symptoms or (b) a documented 6-week conservative therapy trial will be denied for lack of medical necessity. Appeals must include physician attestation of symptom duration, conservative treatments attempted, and clinical rationale for expedited imaging if red flags were present but not clearly coded."
+  },
+  {
+    "payer_code": "AETNA",
+    "policy_number": "AET-CP-0301",
+    "title": "Inpatient Admission Medical Necessity - General Criteria",
+    "category": "admission_criteria",
+    "effective_date": "2025-01-01",
+    "content": "Inpatient level of care is authorized when documentation supports that the patient's condition could not be safely managed in an outpatient or observation setting, using InterQual or MCG-equivalent severity-of-illness and intensity-of-service criteria. Vital sign instability, need for continuous monitoring, IV medication requiring inpatient titration, or acute organ dysfunction typically support inpatient status. Admissions lacking explicit documentation of these criteria may be downgraded to observation status on review, reducing reimbursement."
+  },
+  {
+    "payer_code": "UHC",
+    "policy_number": "UHC-MP-0088",
+    "title": "Heart Failure - ICD-10 Specificity Requirements",
+    "category": "clinical_documentation",
+    "effective_date": "2025-02-01",
+    "content": "UnitedHealthcare requires diagnosis coding to the highest available specificity for heart failure claims. Use of unspecified heart failure (I50.9) where the medical record documents systolic, diastolic, or combined dysfunction with acuity (acute, chronic, or acute-on-chronic) - as commonly evidenced by echocardiogram findings (e.g., reduced LVEF) - will be flagged for coding review and may be denied or downcoded pending resubmission with the specific code (e.g., I50.23 for acute on chronic systolic heart failure). Coders should cross-reference echocardiogram and clinical documentation for LVEF and acuity language before finalizing diagnosis codes."
+  },
+  {
+    "payer_code": "UHC",
+    "policy_number": "UHC-MP-0115",
+    "title": "COPD Exacerbation - Inpatient Admission Criteria",
+    "category": "admission_criteria",
+    "effective_date": "2025-01-15",
+    "content": "Inpatient admission for acute COPD exacerbation is supported when documentation includes: spirometry-confirmed COPD severity, objective exacerbation criteria (increased dyspnea, sputum volume/purulence change, or new supplemental oxygen requirement), and treatment requiring inpatient-level intensity (IV corticosteroids, continuous nebulized therapy, or oxygen titration). Claims with clear documentation of these elements are considered medically necessary at inpatient status and are low risk for denial."
+  },
+  {
+    "payer_code": "MEDICARE",
+    "policy_number": "CMS-LCD-3341",
+    "title": "Repeat Diagnostic Imaging - Frequency Limitation",
+    "category": "fraud_compliance",
+    "effective_date": "2024-10-01",
+    "content": "Medicare considers repeat chest X-rays (CPT 71046) within a 24-hour period medically necessary only when the medical record documents an acute change in clinical status (e.g., new hypoxia, suspected pneumothorax, line/tube placement confirmation) between studies. Billing multiple identical imaging codes within 24 hours without such documented justification is considered a potential duplicate-billing or unbundling pattern and is subject to denial and post-payment audit recoupment."
+  },
+  {
+    "payer_code": "MEDICARE",
+    "policy_number": "CMS-LCD-2207",
+    "title": "Total Knee Arthroplasty - Medical Necessity Criteria",
+    "category": "surgical_necessity",
+    "effective_date": "2024-06-01",
+    "content": "Total knee arthroplasty (CPT 27447) is considered medically necessary for patients with radiographically confirmed end-stage osteoarthritis or comparable degenerative/post-traumatic joint disease who have documented failure of at least 3 months of conservative management, including physical therapy, NSAIDs or other analgesics, and at least one image-guided or clinical corticosteroid injection where not contraindicated. Claims with this documentation on file are considered low risk for denial."
+  },
+  {
+    "payer_code": "MEDICARE",
+    "policy_number": "CMS-LCD-2650",
+    "title": "Upcoding and Unbundling - Compliance Monitoring Standard",
+    "category": "fraud_compliance",
+    "effective_date": "2024-01-01",
+    "content": "Providers must bill the most accurate code reflecting the service rendered. Unbundling (billing component procedures separately when a single comprehensive code exists) and upcoding (billing a higher-complexity E/M or procedure code than clinical documentation supports) are subject to recoupment, civil monetary penalties, and referral for further audit under the False Claims Act. Recurrent identical-service billing within short time windows without documented clinical justification is a standard compliance monitoring trigger."
+  }
+]

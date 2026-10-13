@@ -1,0 +1,5 @@
+[
+  { "payer_code": "AETNA", "name": "Aetna Health Plans" },
+  { "payer_code": "UHC", "name": "UnitedHealthcare" },
+  { "payer_code": "MEDICARE", "name": "CMS Medicare" }
+]
